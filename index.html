@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101827">
+
+  <title>ImageToText Art — Image to ASCII Converter</title>
+
+  <meta name="description"
+    content="Convert entire images into detailed black and white or colored ASCII text art.">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+  <header class="topbar">
+    <a href="#" class="brand">
+      <span class="brand-icon">▦</span>
+      ImageToText<span class="brand-accent">.Art</span>
+    </a>
+
+    <span class="version">FREE & OPEN SOURCE</span>
+  </header>
+
+  <main class="container">
+
+    <section class="hero">
+      <div class="eyebrow">IMAGE CONVERSION STUDIO</div>
+
+      <h1>Every pixel.<br>
+        <span>Made of text.</span>
+      </h1>
+
+      <p>
+        Transform your entire image into detailed text art.
+        From the foreground to the smallest background details.
+      </p>
+    </section>
+
+    <section class="workspace">
+
+      <div class="section-heading">
+        <h2>01 / Upload your image</h2>
+        <span class="step-label">SOURCE IMAGE</span>
+      </div>
+
+      <label class="upload-area" for="imageInput" id="uploadArea">
+        <div class="upload-symbol">＋</div>
+        <h3>Choose an image</h3>
+        <p>Click to upload or select an image from your device</p>
+        <span class="file-types">JPG · PNG · WEBP</span>
+      </label>
+
+      <input
+        type="file"
+        id="imageInput"
+        accept="image/png,image/jpeg,image/webp"
+        hidden
+      >
+
+      <div class="source-preview" id="sourcePreview" hidden>
+        <div class="preview-heading">
+          <span>Original image</span>
+          <button id="removeImage" class="text-button" type="button">
+            Remove image
+          </button>
+        </div>
+        <img id="originalImage" alt="Uploaded original image">
+      </div>
+
+      <div class="section-heading controls-heading">
+        <h2>02 / Conversion settings</h2>
+        <span class="step-label">CUSTOMIZE</span>
+      </div>
+
+      <div class="settings-panel">
+
+        <div class="setting">
+          <label for="outputWidth">Detail level</label>
+          <div class="range-line">
+            <input
+              type="range"
+              id="outputWidth"
+              min="40"
+              max="240"
+              value="120"
+            >
+            <output id="widthValue">120</output>
+          </div>
+        </div>
+
+        <div class="setting">
+          <label for="charSet">Character style</label>
+          <select id="charSet">
+            <option value="standard">Standard ASCII</option>
+            <option value="detailed">Detailed</option>
+            <option value="blocks">Block characters</option>
+            <option value="simple">Simple</option>
+          </select>
+        </div>
+
+        <label class="check-setting">
+          <input type="checkbox" id="invertColors">
+          <span>Invert brightness</span>
+        </label>
+
+        <button id="generateBtn" class="generate-button" type="button" disabled>
+          Generate Text Art <span>→</span>
+        </button>
+
+        <p class="status" id="status">
+          Upload an image to get started.
+        </p>
+
+      </div>
+
+      <div class="section-heading output-heading">
+        <h2>03 / Your generated artwork</h2>
+        <span class="step-label">RESULTS</span>
+      </div>
+
+      <div class="output-grid">
+
+        <article class="output-card">
+          <div class="output-card-heading">
+            <div>
+              <span class="output-number">01</span>
+              <h3>Black & White</h3>
+            </div>
+            <span class="output-tag">MONOCHROME</span>
+          </div>
+
+          <div class="art-preview" id="monoPreview">
+            <span class="placeholder">
+              Your black & white artwork will appear here.
+            </span>
+          </div>
+
+          <div class="output-actions">
+            <button id="copyMono" type="button" disabled>
+              Copy text
+            </button>
+            <button id="downloadMono" type="button" disabled>
+              Download .txt
+            </button>
+          </div>
+        </article>
+
+        <article class="output-card">
+          <div class="output-card-heading">
+            <div>
+              <span class="output-number">02</span>
+              <h3>Full Colour</h3>
+            </div>
+            <span class="output-tag colour-tag">COLOUR</span>
+          </div>
+
+          <div class="art-preview" id="colorPreview">
+            <span class="placeholder">
+              Your coloured artwork will appear here.
+            </span>
+          </div>
+
+          <div class="output-actions">
+            <button id="copyColor" type="button" disabled>
+              Copy text
+            </button>
+            <button id="downloadColor" type="button" disabled>
+              Download .html
+            </button>
+          </div>
+        </article>
+
+      </div>
+
+      <canvas id="processingCanvas" hidden></canvas>
+
+    </section>
+
+    <section class="about">
+      <span class="step-label">THE IDEA</span>
+      <h2>Not just the subject.<br> The whole picture.</h2>
+      <p>
+        Our goal is to recreate the complete visual scene using text
+        characters, including backgrounds, objects, landscapes and details.
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="brand">
+      ImageToText<span class="brand-accent">.Art</span>
+    </div>
+    <p>Made for creativity. Built with open web technologies.</p>
+    <span>© 2026 ImageToText-Art</span>
+  </footer>
+
+</body>
+</html>
